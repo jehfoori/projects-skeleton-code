@@ -38,7 +38,10 @@ def starting_train(train_dataset, val_dataset, model, hyperparameters, n_eval):
         # Loop over each batch in the dataset
         for batch in tqdm(train_loader):
             # TODO: Backpropagation and gradient descent
-
+            images, labels = batch
+            
+            images = images.to(device)
+            labels = labels.to(device)
             # Periodically evaluate our model + log to Tensorboard
             if step % n_eval == 0:
                 # TODO:
